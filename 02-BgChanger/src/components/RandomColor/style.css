@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding:0;
+}
+.colors{
+    display: flex;
+    justify-content: center;
+}
+.colors button{
+    width:auto;
+    height:auto;
+    cursor: pointer;
+    border-radius: 30px;
+    background-color: #000000;
+    color:#ffffff;      
+    margin:10px 20px;
+    padding:10px;
+    border: none;
+}
+.result{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
