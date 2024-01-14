@@ -3,3 +3,4 @@ simple->one button generate random color on click of it change background of it
 one will be for decide for type 2nd one for storing current color
 star rating -> ask all the queries what are the requirements
 we will having noOfStars as a props
+we will create array of no of stars
