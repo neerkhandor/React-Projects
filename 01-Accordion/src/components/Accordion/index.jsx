@@ -12,8 +12,8 @@ export default function Accordion(){
     const [selected,setSelected]=useState(null);
     const [enableMultiSelection,setEnableMultiSelection]=useState(false)
     const [multiple,setMultiple]=useState([])
-
-
+    const [buttonClicked,setButtonClicked]=useState(false)
+    const [isHovered, setIsHovered] = useState(false);
     function handleSingleSelection(getCurrentId){
         // console.log(getCurrentId);
         setSelected(getCurrentId === selected ? null : getCurrentId)
@@ -33,12 +33,25 @@ export default function Accordion(){
     console.log(selected,multiple); 
     return (
         <div className="wrapper">
-            <button onClick ={()=>setEnableMultiSelection(!enableMultiSelection)} className="btn">Enable Multi Selection</button>
+            <button
+            style={{
+                //backgroundColor : buttonClicked ? "#123456" : "rgba(215, 132, 30, 0.857)",
+                backgroundColor : buttonClicked ? '#123456' : isHovered ? '#F6D776' : "rgba(215, 132, 30, 0.857)",
+            }}
+            onClick ={()=>
+            { setEnableMultiSelection(!enableMultiSelection);
+                setButtonClicked(!buttonClicked);
+            }
+            }
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className="btn"
+            >Enable Multi Selection</button>
             <div className="accordion">
                 {
                     data && data.length>0 ? (
                         data.map((dataItem)=>(
-                            <div className="item">
+                            <div  key={dataItem.id} className="item">
                                 <div onClick={
                                     enableMultiSelection  
                                     ? ()=>handleMultiSelection(dataItem.id)
